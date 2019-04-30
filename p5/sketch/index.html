@@ -1,21 +1,43 @@
 <!DOCTYPE html>
 <html lang="">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visualize a Research Career</title>
-    <style> body {padding: 0; margin: 0;} </style>
-    <script src="../p5.min.js"></script>
-    <script src="../addons/p5.dom.min.js"></script>
-    <script src="sketch.js"></script>
-  </head>
-  <body>
-	<h3> Legend </h3>
-	<ul>
-		<li>Circles represent an affiliation of the author, plus the circle is large plus the author remained long with this affiliation</li>
-		<li>Squares represent other author, a connection between a square and a circle means that the authors worked together</li>
-		<li>The links between the circles make it possible to see the evolution of the author's affiliation over time</li>
-	</ul>
-	<div>For this sketch, we use data of the author Alex T. Pang :</div>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visualize a Research Career</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+  <script src="../p5.min.js"></script>
+  <script src="../addons/p5.dom.min.js"></script>
+  <script src="sketch.js"></script>
+  <script src="authordata.js"></script>
+  <script src="search.js"></script>
+  <link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
+</head>
+
+<body>
+    <div class="topnav">
+      <a class="active" href="#home">Home</a>
+      <a href="./about.html">About</a>
+      <div class="search-container">
+        <div autocomplete="off">
+          <div class="autocomplete">
+            <input id="search" type="text" placeholder="Author name" name="search">
+          </div>
+          <button onclick="submit(document.getElementById('search').value)">Submit</button>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div id="author">
+        <h1 id="author-name"></h1>
+      </div>
+      <div id="canvas"></div>
+    </div>
+</body>
+
 </html>
