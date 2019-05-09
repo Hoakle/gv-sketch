@@ -5,12 +5,18 @@ function setupAuthor(authorData, allPaper) {
     let authorDiv = document.getElementById('author');
     console.log(papers);
     for (let i = 0; i < papers.length; i++) {
+        let div = document.createElement("div");
+        div.setAttribute("class", "paper-div");
+        div.addEventListener("click", paperClick, false);
         let title = document.createElement("h2");
         title.innerHTML = papers[i].get("Title");
-        authorDiv.appendChild(title);
+        div.appendChild(title);
         let abstract = document.createElement("p");
         abstract.innerHTML = papers[i].get("Abstract");
-        authorDiv.appendChild(abstract);
+        abstract.style.visibility = "hidden";
+        abstract.style.height = "0";
+        div.appendChild(abstract);
+        authorDiv.appendChild(div);
     }
 }
 
@@ -33,11 +39,33 @@ function updateAuthorDatas(author) {
     }
     authorDiv.appendChild(authorName);
     for (let i = 0; i < papers.length; i++) {
+        let div = document.createElement("div");
+        div.setAttribute("class", "paper-div");
+        div.addEventListener("click", paperClick, false);
         let title = document.createElement("h2");
         title.innerHTML = papers[i].get("Title");
-        authorDiv.appendChild(title);
+        div.appendChild(title);
         let abstract = document.createElement("p");
         abstract.innerHTML = papers[i].get("Abstract");
-        authorDiv.appendChild(abstract);
+        abstract.style.visibility = "hidden";
+        abstract.style.height = "0";
+        div.appendChild(abstract);
+        authorDiv.appendChild(div);
     }
+}
+
+function paperClick() {
+    let abstract = this.childNodes[1];
+	if (abstract.style.visibility=="hidden")
+	{
+		// Contenu caché, le montrer
+		abstract.style.visibility = "visible";
+		abstract.style.height = "auto";
+	}
+	else
+	{
+		// Contenu visible, le cacher
+		abstract.style.visibility = "hidden";
+		abstract.style.height = "0";
+	}
 }

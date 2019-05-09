@@ -126,3 +126,11 @@ body {
   width: 60vw;
   height: 60vw;
 }
+
+.paper-div h2 {
+  cursor: pointer;
+}
+
+.paper-div h2:hover{
+  text-decoration: underline;
+}
